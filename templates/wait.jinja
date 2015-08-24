@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<link href='{{ url_for('static', filename='style.css') }}' rel='stylesheet' type='text/css'/>
+		<title>Image not ready yet</title>
+	</head>
+	<body>
+		<p class="sent" margin-top="30px">
+The file is either not rendered yet (<a href="/file/{{ filename }}">try again</a>) or some error occured (wrong input file etc.) during rendering<br/> and the file will not be avilable. In case that you already have recieved the notification <br/>email, the rendering process failed.
+		</p>
+	</body>
+</html>

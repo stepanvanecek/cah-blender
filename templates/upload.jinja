@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<link href='{{ url_for('static', filename='style.css') }}' rel='stylesheet' type='text/css'/>
+		<title>Render@Cloud&Heat</title>
+	</head>
+	<body>
+
+		<header>
+			Blender rendering @ <a href="https://cloudandheat.com"><img src="static/img/Logo-RGB.png" style="vertical-align: text-top;" width="260px" height="55px"></a>
+		</header>
+
+{% if btn_clicked == "no" %}
+
+		<div class="inputForm">
+			<div class="title">Select a file to render and fill in an E-mail to get notified on once the rendering is finished.</div>
+			<form action="/upload" method="POST" enctype="multipart/form-data" class="form-inline">
+				<input type="file" name="FileToUpload" value="" placeholder="Upload a File"><br />
+				<input type="email" id="mail" name="mail" placeholder="Your E-Mail" size="23"><br/>
+				<input type="submit" name="cmd" value="Render">
+			</form>
+			<div class="title"><a href="/example">or try an example file</a></div>
+		</div>
+	
+
+{% elif btn_clicked == "example" %}
+		<div class="exampleForm">
+			<div class="title">Click to select the example and fill in an E-mail.</div>
+			<form action="/example" method="POST" enctype="multipart/form-data" class="form-inline">
+				{% for fil in files %}
+				<input type="radio" name="files" id="{{ fil }}" value="{{ fil }}" ><label for="{{ fil }}"> {{ fil }} </label></input><br/>
+				{% endfor %}
+				<input type="email" id="mail" name="mail" placeholder="Your E-Mail" size="23"><br/>
+				<input type="submit" name="cmd" value="Render">
+			</form>
+			<div style="font-size: 80%; margin-top: -10px;">These files were downloaded from the <a href="https://www.blender.org/download/demo-files/">Blender project website</a>. You could find some other demo files to try out as well.</div>
+
+			<div class="title"><a href="/upload">or upload your own file</a></div>
+		</div>
+{% else %}
+		<p class="sent">The file is being rendered. You will recieve an E-mail with the address of the rendered file once <br/>the process is ready. You could try <a href="/file/{{ btn_clicked }}">this link</a> to view the output as well.</p>
+{% endif %}
+		<div class="bottomtext">			
+			<p>The application renders the provided blender file to .bmp format using the blender <br/>rendering engine. It uses a pre-set low resolution of 800x480 px.</p>
+			<p>This application was created as example use case of <a href="cloudandheat.com">Cloud&Heat</a> infrastructure. It is<br/> not meant to be a ready-to-use application, its main purpose is to <br/>show possibilities of cloud computing, that our company provides.</p>
+			<p>Note that the rendered files will be publicly accessible!</p>
+		</div>
+	</body>
+</html>

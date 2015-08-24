@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+	margin-top: 25px;
+	height: 100%;
+	padding: 2px;
+	background-image: url("/static/img/cloud-and-heat.jpg");
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+header {
+	text-align: center;
+	font-size: 175%;
+}
+
+.bottomtext {
+  position: absolute;
+  text-align: center;
+  bottom: 10px;
+  width: 100%;
+  font-size: 110%;
+}
+
+input[type=radio] {
+  position:fixed;
+  left:-9999px;
+  text-decoration: underline;
+}
+
+input[type=submit] {
+  width: 8em;
+  height: em;
+}
+
+.exampleForm input[type="radio"]:checked + label {
+  background-color:#bbb;
+}
+
+.exampleForm {
+  text-align: center;
+  font-size: 110%;
+}
+
+.inputForm {
+  margin-top: -2px;
+  padding: 0px;
+  text-align: center;
+}
+
+.title {
+  font-size: 120%;
+}
+
+p.sent {
+	/*width: 800px;*/
+	text-align: center;
+}
+
+
+
+
